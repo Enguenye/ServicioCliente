@@ -1,0 +1,223 @@
+{% load staticfiles %}
+        <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django</title>
+    <meta charset="UTF-8"/>
+    <meta cantidad="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+     <script type="text/javascript">
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+            var dataBase = null;
+
+            function startDB() {
+
+                dataBase = indexedDB.open("object", 1);
+
+                dataBase.onupgradeneeded = function (e) {
+
+                      var active = dataBase.result;
+                      var object = active.createObjectStore("producto", {keyPath: 'id', autoIncrement: true});
+                      object.createIndex('by_cantidad', 'cantidad', {unique: false});
+                      object.createIndex('by_fecha', 'fecha', {unique: false});
+
+                };
+
+                dataBase.onsuccess = function (e) {
+                    //    alert('Database loaded');
+                    loadAll();
+                };
+
+                dataBase.onerror = function (e) {
+                    alert('Error loading database');
+                };
+
+            }
+
+            function add() {
+
+            
+
+                var active = dataBase.result;
+                var data = active.transaction(["producto"], "readwrite");
+                var object = data.objectStore("producto");
+                
+               // if(document.querySelector("#fecha").value!= null ||  cantidad: document.querySelector("#cantidad").value != null || document.querySelector("#tipo").value != null)
+                //{
+                  var request = object.put({
+                    fecha: document.querySelector("#fecha").value,
+                    cantidad: document.querySelector("#cantidad").value,
+                    tipo: document.querySelector("#tipo").value                   
+                });
+
+                request.onerror = function (e) {
+                    alert(request.error.cantidad + '\n\n' + request.error.message);
+                };
+
+                data.oncomplete = function (e) {
+
+                    document.querySelector('#fecha').value = '';
+                    document.querySelector('#cantidad').value = '';
+                    document.querySelector('#tipo').value = '';
+                    alert('Object successfully added');
+                    loadAll();
+                };
+              //  }
+                //else
+                //{
+                 // alert('Los campos no pueden ser vaciíos');
+                //}
+                
+
+            }
+
+            function checkOnline()
+            {
+              online = window.navigator.onLine;
+                  if(online)
+                  {
+                    window.location.href = 'https://Arquisoft-S2-1--enguenye.repl.co/courses';
+                  }
+
+                  else
+                  {
+                     window.location.href = 'https://Arquisoft-S2-1--enguenye.repl.co';
+
+                  }
+
+            }
+
+            function load(id) {
+                var active = dataBase.result;
+                var data = active.transaction(["producto"], "readonly");
+                var object = data.objectStore("producto");
+
+                var request = object.get(parseInt(id));
+
+                request.onsuccess = function () {
+                    var result = request.result;
+
+                    if (result !== undefined) {
+                        alert("ID: " + result.id + "\n\
+                               fecha " + result.fecha + "\n\
+                               cantidad: " + result.cantidad + "\n\
+                               tipo: " + result.tipo);
+                    }
+                };
+            }
+
+            function loadByfecha(fecha) {
+                var active = dataBase.result;
+                var data = active.transaction(["producto"], "readonly");
+                var object = data.objectStore("producto");
+                var index = object.index("by_fecha");
+                var request = index.get(String(fecha));
+
+                request.onsuccess = function () {
+                    var result = request.result;
+
+                    if (result !== undefined) {
+                        alert("ID: " + result.id + "\n\
+                               fecha " + result.fecha + "\n\
+                               cantidad: " + result.cantidad + "\n\
+                               tipo: " + result.tipo);
+                    }
+                };
+            }
+
+            function loadAll() {
+                var active = dataBase.result;
+                var data = active.transaction(["producto"], "readonly");
+                var object = data.objectStore("producto");
+
+                var elements = [];
+
+                object.openCursor().onsuccess = function (e) {
+
+                    var result = e.target.result;
+
+                    if (result === null) {
+                        return;
+                    }
+
+                    elements.push(result.value);
+                    result.continue();
+
+                };
+
+                data.oncomplete = function () {
+
+                    var outerHTML = '';
+
+                    for (var key in elements) {
+
+                        outerHTML += '\n\
+                        <tr>\n\
+                            <td>' + elements[key].fecha + '</td>\n\
+                            <td>' + elements[key].cantidad + '</td>\n\
+                            <td>\n\
+                                <button type="button" onclick="load(' + elements[key].id + ')">Detalles</button>\n\
+                            </td>\n\
+                        </tr>';
+
+                    }
+
+                    elements = [];
+                    document.querySelector("#elementsList").innerHTML = outerHTML;
+                };
+            }
+            
+            function loadAllByfecha() {
+                var active = dataBase.result;
+                var data = active.transaction(["producto"], "readonly");
+                var object = data.objectStore("producto");
+                var index = object.index("by_fecha");
+                
+                var elements = [];
+
+                index.openCursor().onsuccess = function (e) {
+
+                    var result = e.target.result;
+
+                    if (result === null) {
+                        return;
+                    }
+
+                    elements.push(result.value);
+                    result.continue();
+
+                };
+
+                data.oncomplete = function () {
+
+                    var outerHTML = '';
+
+                    for (var key in elements) {
+
+                        outerHTML += '\n\
+                        <tr>\n\
+                            <td>' + elements[key].fecha + '</td>\n\
+                            <td>' + elements[key].cantidad + '</td>\n\
+                            <td>\n\
+                                <button type="button" onclick="load(' + elements[key].id + ')">Detalles</button>\n\
+                            </td>\n\
+                        </tr>';
+
+                    }
+
+                    elements = [];
+                    document.querySelector("#elementsList").innerHTML = outerHTML;
+                };
+            }
+
+        </script>
+    </head>
+</head>
+<body onload="startDB() ,checkOnline();">
+  
+    {% block content %}{% endblock content %}
+    
+</body>
+</html>

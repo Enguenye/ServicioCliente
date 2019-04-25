@@ -1,0 +1,54 @@
+<h1>Facturas</h1>
+
+<p>
+    <a href="{% url "courses:new" %}">Agregar factura</a>
+</p>
+
+<ul>
+    {% for course in object_list %}
+        <li>
+            <p>{{ course.tipo }}</p>
+            <p>
+                <a href="{% url "courses:detail" course.id %}">Ver</a> |
+                <a href="{% url "courses:edit" course.id %}">Editar</a> |
+                <a href="{% url "courses:delete" course.id %}">Borrar</a>
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+<h1>Cajas</h1>
+
+<p>
+    <a href="{% url "courses:new2" %}">Agregar caja</a>
+</p>
+
+<ul>
+    {% for course in object_list %}
+        <li>
+            <p>{{ course.tipo }}</p>
+            <p>
+                <a href="{% url "courses:detail2" course.id %}">Ver</a> |
+                <a href="{% url "courses:edit2" course.id %}">Editar</a> |
+                <a href="{% url "courses:delete2" course.id %}">Borrar</a>
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+<h1>Producto</h1>
+
+<p>
+    <a href="{% url "courses:new3" %}">Agregar producto</a>
+</p>
+
+<ul>
+    {% for course in object_list %}
+        <li>
+            <p>{{ course.tipo }}</p>
+            <p>
+                <a href="{% url "courses:detail3" course.id %}">Ver</a> |
+                <a href="{% url "courses:edit3" course.id %}">Editar</a> |
+                <a href="{% url "courses:delete3" course.id %}">Borrar</a>
+            </p>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>ATpos</h1>
+ <input type="date" id="fecha" placeholder="Ingrese la fecha" />
+        <input type="number" id="cantidad" placeholder="Ingrese el producto" />
+        <input type="text" id="tipo" placeholder="Ingrese el tipo" />
+        <button type="button" onclick="add();">Guardar</button>
+        <hr>
+        <div id="elements">
+            <table>
+                <caption>Facturas</caption>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Cantidad</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="elementsList">
+                    <tr>
+                        <td colspan="3">Not elements to show</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" onclick="loadAllByfecha();">Ordenar por fecha</button>
+{% endblock content %}
