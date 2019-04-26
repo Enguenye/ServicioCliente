@@ -7,22 +7,25 @@ import base64
 
 
 def get_data(request):
-    url = 'http://youtube.com'
+    url = 'http://127.0.0.1:8000/courses/llave'
 
     page = urlopen(url)
-    llaveS = page.read()
+    llave1 = str('123456789')
+    b = bytearray()
+    b.extend(map(ord, llave1))
 
-    url2 = 'http://youtube.com'
+    url2 = 'http://127.0.0.1:8000/courses/solicitarReporte'
 
     page2 = urlopen(url2)
-    hash = page2.read()
+    documento = str(page2.read()).split("'")[1]
 
-    url3 = 'http://youtube.com'
-
+    url3 = 'http://127.0.0.1:8000/courses/solicitarReporteHash'
     page3 = urlopen(url3)
-    documento = page3.read()
-    h = hmac.new(llaveS, documento, hashlib.sha256)
-    html = documento
-    print(h.hexdigest())
-    print(hash)
+    hash1 = page3.read()
+    h = hmac.new(b, str(documento).encode(), hashlib.sha256)
+    html = "Reporte:" + documento + "//Integridad--->"
+    if str(hash1).split("'")[1] == h.hexdigest():
+        html += 'No se ha modificado el mensaje'
+    else:
+        html += 'Se modificó el mensaje'
     return HttpResponse(html)
