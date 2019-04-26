@@ -28,4 +28,5 @@ def get_data(request):
         html += 'No se ha modificado el mensaje'
     else:
         html += 'Se modificó el mensaje'
+    html += " El hash recibido fue: " + h.hexdigest()
     return HttpResponse(html)
