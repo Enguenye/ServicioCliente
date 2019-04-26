@@ -16,8 +16,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platzi/courses/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+            <state relative-caret-position="357">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
                 <element signature="e#1#37#0" expanded="true" />
               </folding>
@@ -127,10 +127,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="393" />
-    <option name="y" value="780" />
-    <option name="width" value="1770" />
-    <option name="height" value="1242" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="3863" />
+    <option name="height" value="2123" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -142,25 +142,19 @@
         <subPane>
           <expand>
             <path>
-              <item name="ISIS2503-201910-S4-uSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ISIS2503-201910-S4-uSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="ServicioCliente" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServicioCliente" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ISIS2503-201910-S4-uSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ISIS2503-201910-S4-uSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="ServicioCliente" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServicioCliente" type="462c0819:PsiDirectoryNode" />
               <item name="platzi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ISIS2503-201910-S4-uSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ISIS2503-201910-S4-uSoft" type="462c0819:PsiDirectoryNode" />
+              <item name="ServicioCliente" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServicioCliente" type="462c0819:PsiDirectoryNode" />
               <item name="platzi" type="462c0819:PsiDirectoryNode" />
               <item name="courses" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ISIS2503-201910-S4-uSoft" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ISIS2503-201910-S4-uSoft" type="462c0819:PsiDirectoryNode" />
-              <item name="platzi" type="462c0819:PsiDirectoryNode" />
-              <item name="platzi" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -423,13 +417,6 @@
     <entry file="file://$PROJECT_DIR$/platzi/platzi/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/platzi/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platzi/platzi/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -461,10 +448,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/platzi/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platzi/courses/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+        <state relative-caret-position="357">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
           </folding>
